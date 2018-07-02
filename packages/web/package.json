@@ -1,0 +1,84 @@
+{
+  "name": "@lxdhub/web",
+  "version": "1.2.18",
+  "scripts": {
+    "ng": "ng",
+    "config": "ts-node ./scripts/set-env.ts",
+    "start": "node ./bin/start-web.js",
+    "build": "npm run build:server && npm run build:browser",
+    "build:server": "tsc -p server",
+    "build:browser": "npm run config -- --environment=prod && ng build",
+    "dev:browser": "ng build --watch",
+    "test": "ng test --browsers Chrome",
+    "test:prod": "ng test --browsers ChromeHeadless --single-run",
+    "test:coverage": "ng test --cc",
+    "lint": "ng lint"
+  },
+  "dependencies": {
+    "@angular/animations": "^6.0.6",
+    "@angular/cdk": "^6.3.0",
+    "@angular/common": "^6.0.6",
+    "@angular/compiler": "^6.0.6",
+    "@angular/core": "^6.0.6",
+    "@angular/forms": "^6.0.6",
+    "@angular/http": "^6.0.6",
+    "@angular/material": "^6.3.0",
+    "@angular/platform-browser": "^6.0.6",
+    "@angular/platform-browser-dynamic": "^6.0.6",
+    "@angular/router": "^6.0.6",
+    "@lxdhub/common": "^1.6.0",
+    "core-js": "^2.4.1",
+    "dotenv": "^5.0.1",
+    "flexboxgrid": "^6.3.1",
+    "ng-socket-io": "^0.2.4",
+    "ngx-logger": "^3.0.4",
+    "normalize.css": "^8.0.0",
+    "pretty-bytes": "^4.0.2",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1",
+    "zone.js": "^0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.6.8",
+    "@angular/cli": "^6.0.8",
+    "@angular/compiler-cli": "^6.0.6",
+    "@angular/language-service": "^6.0.6",
+    "@types/express": "^4.16.0",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "^10.5.1",
+    "codelyzer": "^4.0.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "lxd",
+    "lxc",
+    "lxdhub",
+    "container"
+  ],
+  "homepage": "https://github.com/Roche/lxdhub-web#README.md",
+  "bugs": {
+    "url": "https://github.com/Roche/lxdhub-web/issues",
+    "email": "livio.brunner.lb1@roche.com"
+  },
+  "author": {
+    "email": "livio.brunner.lb1@roche.com",
+    "name": "Livio Brunner",
+    "url": "https://brunnerliv.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Roche/lxdhub-web"
+  }
+}
