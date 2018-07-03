@@ -8,4 +8,4 @@ COPY . .
 RUN yarn bootstrap
 
 ENTRYPOINT [ "yarn", "run" ]
-CMD [ "start:dbsync" ]
+CMD [ "start" ]

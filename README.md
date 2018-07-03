@@ -30,8 +30,8 @@ Under the hood, LXDHub is split in five packages. The following graph visualizes
     <th>Description</th>
   </tr>
   <tr>
-    <td><a href="https://github.com/Roche/lxdhub-web">@lxdhub/web</a></td>
-    <td>-</td>
+    <td><a href="https://github.com/Roche/lxdhub/tree/master/packages/web">@lxdhub/web</a></td>
+    <td><a href="https://www.npmjs.com/package/@lxdhub/api"><img src="https://badge.fury.io/js/%40lxdhub%2Fweb.svg" alt="npm version" height="18"></a></td>
     <td>The LXDHub webinterface</td>
   </tr>
   <tr>
@@ -94,10 +94,6 @@ docker-compose up
 
 ```
 
-## Start Webfrontend (optional)
-
-In order to start the webfrontend, read the README of [lxdhub-web](https://github.com/Roche/lxdhub-web).
-
 # Tests
 
 ## Prerequisites
@@ -111,12 +107,9 @@ Run the automated test cases with NodeJS.
 
 ```bash
 
-# Only need to do once
-npm install
-# Builds the app, run tests and linters
-./bin/run-tests.sh
-# Get coverage report on http://localhost:8000
-cd coverage && python -m SimpleHTTPServer 8000
+docker build -t $USER/lxdhub .
+docker run -it brunnel6/lxdhub test
+docker run -it brunnel6/lxdhub lint
 
 ```
 
@@ -145,15 +138,15 @@ The data will no be loaded from your local SQLite database. The model data insid
 
 # Related
 
-- [@lxdhub/web](https://github.com/Roche/lxdhub-web): The LXDHub webinterface
-- [@lxdhub/api](lib/api/README.md): The REST API for the LXDHub webinterface
-- [@lxdhub/dbsync](lib/dbsync/README.md): The script to synchronize multiple LXD remotes with the LXDHub database
-- [@lxdhub/db](lib/db/README.md): The package, which provides database functions for the `@lxdhub/api` and `@lxdhub/dbsync` packages
-- [@lxdhub/common](lib/common/README.md): The package, which provides common functions for all LXDHub-packages
+- [@lxdhub/web](packages/web/README.md): The LXDHub webinterface
+- [@lxdhub/api](packages/api/README.md): The REST API for the LXDHub webinterface
+- [@lxdhub/dbsync](packages/dbsync/README.md): The script to synchronize multiple LXD remotes with the LXDHub database
+- [@lxdhub/db](packages/db/README.md): The package, which provides database functions for the `@lxdhub/api` and `@lxdhub/dbsync` packages
+- [@lxdhub/common](packages/common/README.md): The package, which provides common functions for all LXDHub-packages
 - [CONTRIBUTING.md](CONTRIBUTING.md): The contributing guidelines
 - [COPYRIGHT](COPYRIGHT): Copyright informations
 - [publish.md](docs/publish.md): Documentation on how LXDHub is being published
-- [LXC](https://linuxcontainers.org/): The underlaying technology behind LXDHub
+- [LXC](https://linuxcontainers.org/): The underlying technology behind LXDHub
 
 # People
 

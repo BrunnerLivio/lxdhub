@@ -7,6 +7,9 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "cli": {
+        "packageManager": "yarn"
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -25,24 +28,6 @@
               "src/styles.css"
             ],
             "scripts": []
-          },
-          "configurations": {
-            "dev": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
-                }
-              ]
-            },
-            "prod": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            }
           }
         },
         "serve": {

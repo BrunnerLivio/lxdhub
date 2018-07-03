@@ -12,7 +12,7 @@ import { LXDHubWebSettings } from './lxdhubwebsettings.interface';
 export class LXDHubWeb implements Interfaces.ILXDHubService {
     private app;
     private logger: WinstonLogger;
-    private distFolder: string = join(process.cwd(), 'lib');
+    private distFolder: string = join(__dirname, '../');
     private browserDistFolder: string = join(this.distFolder, 'browser');
     constructor(private settings: LXDHubWebSettings) {
         this.logger = new WinstonLogger('LXDHubWeb', settings.logLevel as LogType);

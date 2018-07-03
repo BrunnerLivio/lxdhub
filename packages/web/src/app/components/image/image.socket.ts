@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Socket } from 'ng-socket-io';
 
-import { environment } from '../../../environments/environment';
+import { APP_SETTINGS, AppSettings } from '../../../settings';
 
 @Injectable()
 export class ImageSocket extends Socket {
-    constructor() {
-        super({ url: `${environment.apiUrl}/image`, options: {} });
+    constructor(
+        @Inject(APP_SETTINGS) private config: AppSettings
+    ) {
+        super({ url: `${config.apiUrl}/image`, options: {} });
     }
 
     getCloneStatus(destinationRemoteId: number, operation: string, imageId: number): any {

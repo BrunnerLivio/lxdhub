@@ -4,15 +4,18 @@
     "description": "Display, search and copy LXD-images using a web interface.",
     "private": true,
     "scripts": {
-        "start": "npm run start:api",
         "lint:api": "tslint -c tslint.json 'src/api/*.ts'",
         "lint:db": "tslint -c tslint.json 'src/db/*.ts'",
         "lint:common": "tslint -c tslint.json 'src/common/*.ts'",
         "lint:dbsync": "tslint -c tslint.json 'src/dbsync/*.ts'",
         "lint": "npm run lint:api && npm run lint:db && npm run lint:dbsync && npm run lint:common",
+        "start": "node bin/start.js",
         "start:api": "lerna exec npm run start --scope @lxdhub/api",
         "start:dbsync": "lerna exec npm run start --scope @lxdhub/dbsync",
-        "test": "lerna exec npm run test --scope @lxdhub/api",
+        "start:web": "lerna exec npm run start --scope @lxdhub/web",
+        "test": "npm run test:api && npm run test:web",
+        "test:api": "lerna exec npm run test --scope @lxdhub/api",
+        "test:web": "lerna exec npm run test --scope @lxdhub/web",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
         "prepare": "lerna run prepare"
@@ -22,7 +25,9 @@
         "lerna": "^2.9.0",
         "rimraf": "^2.6.2",
         "tslint": "^5.10.0",
-        "typescript": "^2.8.1"
+        "typescript": "^2.8.1",
+        "js-yaml": "^3.11.0",
+        "fs-extra": "^6.0.1"
     },
     "license": "Apache-2.0",
     "keywords": [

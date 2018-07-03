@@ -3,7 +3,6 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile.api
     volumes:
       - ./certificates:/var/lib/lxdhub/certificates
     ports:
@@ -25,7 +24,6 @@ services:
   dbsync:
     build:
       context: .
-      dockerfile: Dockerfile.dbsync
     volumes:
       - ./certificates:/var/lib/lxdhub/certificates
       - ./lxdhub.yml:/var/lib/lxdhub/lxdhub.yml

@@ -10,17 +10,16 @@ jobs:
     working_directory: ~/lxdhub
     steps:
       - checkout
-      - run: docker build -f Dockerfile.api -t brunnel6/lxdhub-api .
-      - run: docker run -it brunnel6/lxdhub-api test
-      - run: docker run -it brunnel6/lxdhub-api lint
+      - run: docker build -t brunnel6/lxdhub .
+      - run: docker run -it brunnel6/lxdhub test
+      - run: docker run -it brunnel6/lxdhub lint
 
   build_docker:
     machine: true
     working_directory: /tmp/lxdhub
     steps:
       - checkout
-      - run: docker build -f Dockerfile.api .
-      - run: docker build -f Dockerfile.dbsync .
+      - run: docker build Dockerfile .
 
   deploy_docker:
     machine: true
