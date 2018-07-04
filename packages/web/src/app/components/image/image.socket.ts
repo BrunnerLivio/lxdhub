@@ -8,7 +8,7 @@ export class ImageSocket extends Socket {
     constructor(
         @Inject(APP_SETTINGS) private config: AppSettings
     ) {
-        super({ url: `${config.apiUrl}/image`, options: {} });
+        super({ url: `${config.apiUrl}/api/v1/image` });
     }
 
     getCloneStatus(destinationRemoteId: number, operation: string, imageId: number): any {

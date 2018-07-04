@@ -7,7 +7,7 @@ import { LogDto } from './dtos';
  * The Remote-Controller, which is the API
  * interface for Remote-Operations.
  */
-@Controller('log')
+@Controller('/api/v1/log')
 export class LogController {
     logger: LogService;
     /**

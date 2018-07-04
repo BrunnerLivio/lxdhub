@@ -25,7 +25,7 @@ export class LXDHubWeb implements Interfaces.ILXDHubHttpService {
         this.app.use(express.static(this.browserDistFolder));
         this.app.get('/config.json', (_, res) => res.json(this.settings));
         // Match everything, except when it begins with /api
-        this.app.get(/^[/](([^a]|a[^p]|ap[^i]).*$)/, (_, res) => res.sendFile(join(this.browserDistFolder, 'index.html')));
+        this.app.get(/^(?!\/(api|socket.io)).*$/, (_, res) => res.sendFile(join(this.browserDistFolder, 'index.html')));
     }
 
     private async listen() {

@@ -16,6 +16,8 @@
         "test": "npm run test:api && npm run test:web",
         "test:api": "lerna exec npm run test --scope @lxdhub/api",
         "test:web": "lerna exec npm run test --scope @lxdhub/web",
+        "build:api": "lerna exec yarn run build --scope @lxdhub/api",
+        "build:web": "lerna exec yarn run build --scope @lxdhub/web",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
         "prepare": "lerna run prepare"

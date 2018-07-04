@@ -5,7 +5,7 @@ import { Request } from 'express';
 
 import { LXDHubAPISettings } from '.';
 
-@Controller('')
+@Controller('/api/v1/')
 /**
  * The root api controller
  */

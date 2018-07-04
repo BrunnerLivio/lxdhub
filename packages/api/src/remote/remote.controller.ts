@@ -9,7 +9,7 @@ import { RemoteDto } from './dtos';
  * The Remote-Controller, which is the API
  * interface for Remote-Operations.
  */
-@Controller('remote')
+@Controller('/api/v1/remote')
 export class RemoteController {
   constructor(
     private readonly remoteService: RemoteService

@@ -77,7 +77,7 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
      */
     private setupMiddleware() {
 
-        this.app.setGlobalPrefix('/api/v1');
+        // this.app.setGlobalPrefix('/api/v1');
         // Global execution handler
         this.app.useGlobalFilters(new HttpExceptionFilter());
         // Global request logger
@@ -114,16 +114,17 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
     /**
      * Bootstraps & starts LXDHub API with the given conifgurations
      */
-    async run(server?: Express.Application) {
+    async run() {
         this.logger.log('Bootstraping application');
         try {
-            const server = await this.bootstrap();
+            await this.bootstrap();
         }
         catch (err) {
             err = err as Error;
             this.logger.error(`An error occured while bootstraping the application`);
             this.logger.error(err.message);
         }
+
         // Starts listening on the given port and host url
         await this.app.listen(this.settings.port, this.settings.hostUrl);
         this.logger.log(`Open on ${Chalk.default.blue(this.url)}`);
