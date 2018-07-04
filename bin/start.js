@@ -5,6 +5,7 @@ const { LXDHubDbSync } = require('@lxdhub/dbsync');
 const fs = require('fs-extra');
 const path = require('path');
 const YAML = require('js-yaml');
+const express = require('express');
 
 // Default time (in minutes) when the interval task should be executed
 const DEFAULT_SYNC_INTERVAL = 3;
@@ -41,37 +42,47 @@ const syncInterval = parseInt((process.env.SYNC_INTERVAL || DEFAULT_SYNC_INTERVA
 
 const logLevel = process.env.LOG_LEVEL;
 
-// Function, which will be run as interval
-const intervalTask = () =>
-    // Read the config file
-    fs.readFile(lxdConifgAbsolutePath, 'utf8')
-        // Convert from YAML to JSON
-        .then(content => YAML.safeLoad(content))
-        // Create the database sync instance
-        .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, logLevel, lxdhubConfig }))
-        // Run the database sync script
-        .then(dbSync => dbSync.run());
+const startDbsync = async () => {
+    // Function, which will be run as interval
+    const intervalTask = () =>
+        // Read the config file
+        fs.readFile(lxdConifgAbsolutePath, 'utf8')
+            // Convert from YAML to JSON
+            .then(content => YAML.safeLoad(content))
+            // Create the database sync instance
+            .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, logLevel, lxdhubConfig }))
+            // Run the database sync script
+            .then(dbSync => dbSync.run());
 
 
-// Run task when starting
-intervalTask();
+    // Run task when starting
+    intervalTask();
 
-// Register interval
-setInterval(() => intervalTask(), syncInterval);
+    // Register interval
+    setInterval(() => intervalTask(), syncInterval);
+}
 
-new LXDHubAPI({
-    hostUrl: '0.0.0.0',
-    port: 3000,
-    logLevel,
-    lxd,
-    docUrl: '/api/v1/doc',
-    database
-}).run();
+const startWeb = async () => {
+    let app;
+    app = await new LXDHubWeb({
+        hostUrl: process.env.HOST_URL || '0.0.0.0',
+        port: parseInt(process.env.PORT, 10) || 4200,
+        logLevel,
+        loggingUrl: 'http://localhost:3000/api/v1/log',
+        apiUrl: process.env.API_URL || 'http://localhost:3000'
+    }).bootstrap();
 
-new LXDHubWeb({
-    hostUrl: process.env.HOST_URL || '0.0.0.0',
-    port: parseInt(process.env.PORT, 10) || 4200,
-    logLevel,
-    loggingUrl: 'http://localhost:3000/api/v1/log',
-    apiUrl: process.env.API_URL || 'http://localhost:3000'
-}).run();
+    app = await new LXDHubAPI({
+        hostUrl: '0.0.0.0',
+        port: 3000,
+        logLevel,
+        lxd,
+        docUrl: '/api/v1/doc',
+        database
+    }, app).run();
+    return app;
+}
+
+
+startDbsync();
+startWeb();

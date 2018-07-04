@@ -8,33 +8,40 @@ import * as express from 'express';
 import { join } from 'path';
 
 import { LXDHubWebSettings } from './lxdhubwebsettings.interface';
+import { Application } from 'express';
 
-export class LXDHubWeb implements Interfaces.ILXDHubService {
-    private app;
+export class LXDHubWeb implements Interfaces.ILXDHubHttpService {
     private logger: WinstonLogger;
     private distFolder: string = join(__dirname, '../');
     private browserDistFolder: string = join(this.distFolder, 'browser');
-    constructor(private settings: LXDHubWebSettings) {
+    private url: string;
+
+    constructor(private settings: LXDHubWebSettings, private app?: Application) {
         this.logger = new WinstonLogger('LXDHubWeb', settings.logLevel as LogType);
+        this.url = `http://${this.settings.hostUrl}:${this.settings.port}`;
     }
 
     private setupNgRendering() {
         this.app.use(express.static(this.browserDistFolder));
         this.app.get('/config.json', (_, res) => res.json(this.settings));
-        this.app.get('*', (_, res) => res.sendFile(join(this.browserDistFolder, 'index.html')));
-    }
-
-    private async bootstrap() {
-        this.app = express();
-        this.setupNgRendering();
+        // Match everything, except when it begins with /api
+        this.app.get(/^[/](([^a]|a[^p]|ap[^i]).*$)/, (_, res) => res.sendFile(join(this.browserDistFolder, 'index.html')));
     }
 
     private async listen() {
         this.app.listen(this.settings.port, this.settings.hostUrl, () =>
-            this.logger.log(`Running webinterface on ` + Chalk.default.blue(`http://${this.settings.hostUrl}:${this.settings.port}`)));
+            this.logger.log(`Running webinterface on ` + Chalk.default.blue(this.url)));
         try {
             this.logger.log(`Set configuration: ${Chalk.default.blue(JSON.stringify(this.settings))}`);
         } catch (ex) { }
+    }
+
+    public async bootstrap(): Promise<Application> {
+        if (!this.app) {
+            this.app = express();
+        }
+        this.setupNgRendering();
+        return this.app;
     }
 
     /**

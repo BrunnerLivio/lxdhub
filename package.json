@@ -4,11 +4,11 @@
     "description": "Display, search and copy LXD-images using a web interface.",
     "private": true,
     "scripts": {
+        "lint": "npm run lint:api && npm run lint:db && npm run lint:dbsync && npm run lint:common",
         "lint:api": "tslint -c tslint.json 'src/api/*.ts'",
         "lint:db": "tslint -c tslint.json 'src/db/*.ts'",
         "lint:common": "tslint -c tslint.json 'src/common/*.ts'",
         "lint:dbsync": "tslint -c tslint.json 'src/dbsync/*.ts'",
-        "lint": "npm run lint:api && npm run lint:db && npm run lint:dbsync && npm run lint:common",
         "start": "node bin/start.js",
         "start:api": "lerna exec npm run start --scope @lxdhub/api",
         "start:dbsync": "lerna exec npm run start --scope @lxdhub/dbsync",
@@ -52,5 +52,9 @@
     },
     "workspaces": [
         "packages/*"
+    ],
+    "nohoist": [
+        "**/@angular",
+        "**/@angular/**"
     ]
 }

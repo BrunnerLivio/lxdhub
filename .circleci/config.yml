@@ -14,13 +14,6 @@ jobs:
       - run: docker run -it brunnel6/lxdhub test
       - run: docker run -it brunnel6/lxdhub lint
 
-  build_docker:
-    machine: true
-    working_directory: /tmp/lxdhub
-    steps:
-      - checkout
-      - run: docker build Dockerfile .
-
   deploy_docker:
     machine: true
     working_directory: /tmp/lxdhub
@@ -30,11 +23,9 @@ jobs:
 
 workflows:
   version: 2
-
   build-test-and-deploy:
     jobs:
       - test
-      - build_docker
       - deploy_docker:
           filters:
             branches:

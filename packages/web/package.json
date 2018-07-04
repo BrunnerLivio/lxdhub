@@ -10,14 +10,14 @@
     "build:server": "tsc -p server",
     "build:browser": "ng build --preserve-symlinks",
     "dev:browser": "ng build --watch",
-    "test": "ng test --browsers Chrome",
-    "test:prod": "ng test --browsers ChromeHeadless --single-run",
+    "test": "ng test --browsers ChromeHeadless --single-run",
+    "test:dev": "ng test --browsers Chrome",
     "test:coverage": "ng test --cc",
     "lint": "ng lint"
   },
   "dependencies": {
     "@angular/animations": "^6.0.7",
-    "@angular/cdk": "^6.3.1",
+    "@angular/cdk": "^6.3.2",
     "@angular/cli": "^6.0.8",
     "@angular/common": "^6.0.7",
     "@angular/compiler": "^6.0.7",

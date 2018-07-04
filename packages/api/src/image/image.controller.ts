@@ -23,7 +23,7 @@ import { ImageListItemInterceptor } from './interceptors/image-list-item.interce
  * The Image Controller, which is the API
  * interface for Image-Operations.
  */
-@Controller('/api/v1/image')
+@Controller('image')
 export class ImageController {
   constructor(
     private readonly imageService: ImageService
