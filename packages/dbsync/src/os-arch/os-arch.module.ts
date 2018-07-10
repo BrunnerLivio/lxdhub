@@ -14,7 +14,7 @@ import { OperatingSystemModule } from '../operating-system';
         ArchitectureModule,
         OperatingSystemModule
     ],
-    components: [
+    providers: [
         OsArchService,
         OperatingSystemArchitectureRepositoryProvider
     ],

@@ -8,7 +8,7 @@ import { OperatingSystemRepositoryProvider } from './operating-system.repository
     imports: [
         LXDModule
     ],
-    components: [
+    providers: [
         OperatingSystemService,
         OperatingSystemRepositoryProvider
     ],

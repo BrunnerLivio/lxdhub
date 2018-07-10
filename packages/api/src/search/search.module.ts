@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { SearchService } from '.';
 
 @Module({
-    components: [
+    providers: [
         SearchService
     ],
     exports: [

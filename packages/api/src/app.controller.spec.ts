@@ -30,7 +30,7 @@ describe('AppController', () => {
             controllers: [
                 AppController
             ],
-            components: [
+            providers: [
                 {
                     provide: 'Fs',
                     useClass: FsMock

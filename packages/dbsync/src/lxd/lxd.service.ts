@@ -1,10 +1,10 @@
-import { Component, Inject, Logger } from '@nestjs/common';
+import { Inject, Logger, Injectable } from '@nestjs/common';
 import { ImageDetail, LXDRemoteClient } from 'node-lxd-client';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { RemoteDto } from '../remote';
 
-@Component()
+@Injectable()
 export class LXDService {
     private lxd: LXDRemoteClient;
     private logger: Logger;

@@ -12,7 +12,7 @@ import { ImageAvailabilityService } from './image-availability.service';
         ImageModule,
         LXDModule
     ],
-    components: [
+    providers: [
         ImageAvailabilityService,
         ImageAvailabilityRepositoryProvider
     ],

@@ -14,10 +14,10 @@
     "dependencies": {
         "@lxdhub/common": "^1.6.0",
         "@lxdhub/db": "^1.6.0",
-        "@nestjs/common": "^4.6.6",
-        "@nestjs/core": "^4.6.6",
-        "@nestjs/testing": "^4.6.6",
-        "@nestjs/typeorm": "2.0.0",
+        "@nestjs/common": "^5.1.0",
+        "@nestjs/core": "^5.1.0",
+        "@nestjs/testing": "^5.1.0",
+        "@nestjs/typeorm": "5.0.2",
         "aigle": "^1.12.0-alpha.6",
         "clime": "^0.5.9",
         "fs-extra": "^6.0.1",
@@ -26,7 +26,7 @@
         "node-lxd-client": "0.1.0",
         "pg": "^7.4.1",
         "reflect-metadata": "^0.1.12",
-        "rxjs": "^5.5.10"
+        "rxjs": "^6.2.1"
     },
     "publishConfig": {
         "access": "public"

@@ -1,11 +1,11 @@
 import { Image, Remote } from '@lxdhub/db';
-import { Component, Inject, InternalServerErrorException } from '@nestjs/common';
+import { Inject, InternalServerErrorException, Injectable } from '@nestjs/common';
 import * as Request from 'request-promise';
 
 import { LXDHubAPISettings } from '..';
 import { SourceImageFactory } from './factories';
 
-@Component()
+@Injectable()
 export class LXDService {
     constructor(
         private sourceImageFactory: SourceImageFactory,

@@ -52,7 +52,7 @@ describe('ImageService', () => {
     beforeEach(async done => {
         // Mock Image Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 ImageService,
                 ImageRepository,
                 ImageListItemFactory,

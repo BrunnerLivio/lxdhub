@@ -1,13 +1,13 @@
 import { Factory } from '@lxdhub/common';
 import { Remote } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 import { RemoteDto } from '../';
 
 /**
  * Factory which prodcues RemoteDtos
  */
-@Component()
+@Injectable()
 export class RemoteFactory {
     /**
      * Maps the given RemoteDto with the database Remote and returns

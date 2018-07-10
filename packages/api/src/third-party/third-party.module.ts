@@ -3,7 +3,7 @@ import { Global, Module } from '@nestjs/common';
 import { FsProvider, PathProvider, RequestProvider } from '.';
 
 @Module({
-    components: [
+    providers: [
         FsProvider,
         PathProvider,
         RequestProvider

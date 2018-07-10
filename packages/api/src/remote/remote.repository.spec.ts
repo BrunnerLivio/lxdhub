@@ -15,7 +15,7 @@ describe('RemoteRepository', () => {
             imports: [
                 DatabaseModule.forRoot()
             ],
-            components: [
+            providers: [
                 DatabaseService,
                 RemoteRepositoryProvider,
                 TestUtils

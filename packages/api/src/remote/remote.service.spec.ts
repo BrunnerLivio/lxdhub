@@ -15,7 +15,7 @@ describe('RemoteService', () => {
     beforeEach(async done => {
         // Mock Remote Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 RemoteService,
                 RemoteRepository,
                 RemoteFactory,

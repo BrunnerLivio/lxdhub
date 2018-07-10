@@ -8,7 +8,7 @@ import { LXDModule } from '../lxd';
     imports: [
         LXDModule
     ],
-    components: [
+    providers: [
         RemoteFactory,
         RemoteService,
         RemoteRepositoryProvider

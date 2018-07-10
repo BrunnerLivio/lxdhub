@@ -1,5 +1,5 @@
 import { DatabaseService } from '@lxdhub/db';
-import { Component, Logger } from '@nestjs/common';
+import { Logger, Injectable } from '@nestjs/common';
 
 import { AliasService } from './alias';
 import { ArchitectureService } from './architecture';
@@ -10,7 +10,7 @@ import { OsArchService } from './os-arch';
 import { RemoteService } from './remote';
 import { NestEnvironment } from '@nestjs/common/enums/nest-environment.enum';
 
-@Component()
+@Injectable()
 /**
  * The app services orchastrates the database synchronizer
  */

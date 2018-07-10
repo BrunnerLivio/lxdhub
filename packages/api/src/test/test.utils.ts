@@ -1,5 +1,5 @@
 import { DatabaseService } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as Path from 'path';
 
@@ -10,7 +10,7 @@ import * as Path from 'path';
  * This class is inspired by https://github.com/jgordor
  * https://github.com/nestjs/nest/issues/409#issuecomment-364639051
  */
-@Component()
+@Injectable()
 export class TestUtils {
   databaseService: DatabaseService;
   order: string[];

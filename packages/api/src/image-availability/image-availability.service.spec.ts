@@ -18,7 +18,7 @@ describe('ImageAvailabilityService', () => {
     beforeEach(async done => {
         // Mock Remote Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 ImageAvailabilityService,
                 {
                     provide: 'ImageAvailabilityRepository',

@@ -17,7 +17,7 @@ describe('ImageListItemFactory', () => {
     beforeEach(async () => {
         // Mock Image Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 ImageListItemFactory
             ]
         }).compile();

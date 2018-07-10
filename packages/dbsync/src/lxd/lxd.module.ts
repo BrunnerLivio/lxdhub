@@ -6,7 +6,7 @@ import { LXDService } from './lxd.service';
  * The LXDModule for LXD api operations
  */
 @Module({
-    components: [
+    providers: [
         LXDService
     ],
     exports: [

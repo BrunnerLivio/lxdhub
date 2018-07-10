@@ -9,7 +9,7 @@ import { ImageRepositoryProvider } from './image.repository';
     imports: [
         LXDModule
     ],
-    components: [
+    providers: [
         ImageRepositoryProvider,
         ImageService,
         ImageDtoFactory

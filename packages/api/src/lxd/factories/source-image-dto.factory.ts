@@ -1,5 +1,5 @@
 import { Alias, Image, Remote } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as Fs from 'fs';
 import * as Url from 'url';
 
@@ -9,7 +9,7 @@ import { AliasDto, SourceDto, SourceImageDto } from '../dto';
  * Transforms the image and remotes from the database
  * to a SourceImageDto
  */
-@Component()
+@Injectable()
 export class SourceImageFactory {
     /**
      * Maps the alias from the database with the AliasDto

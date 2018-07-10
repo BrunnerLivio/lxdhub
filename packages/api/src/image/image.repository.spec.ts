@@ -16,7 +16,7 @@ describe('ImageRepository', () => {
             imports: [
                 DatabaseModule.forRoot()
             ],
-            components: [
+            providers: [
                 DatabaseService,
                 ImageRepositoryProvider,
                 TestUtils

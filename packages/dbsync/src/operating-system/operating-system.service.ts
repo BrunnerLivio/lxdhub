@@ -1,5 +1,5 @@
 import { OperatingSystem } from '@lxdhub/db';
-import { Component, Inject, Logger } from '@nestjs/common';
+import { Inject, Logger, Injectable } from '@nestjs/common';
 import Aigle from 'aigle';
 import * as _ from 'lodash';
 
@@ -9,7 +9,7 @@ import { LXDService } from '../lxd';
 import { trimIfPossible } from '../util';
 import { OperatingSystemRepository } from './operating-system.repository';
 
-@Component()
+@Injectable()
 export class OperatingSystemService {
     private logger: Logger;
     constructor(

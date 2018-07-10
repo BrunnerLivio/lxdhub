@@ -23,7 +23,7 @@ describe('ImageController', () => {
             controllers: [ImageController],
             modules: [
             ],
-            components: [
+            providers: [
                 {
                     provide: 'ImageService',
                     useClass: ImageServiceMock

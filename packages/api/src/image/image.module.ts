@@ -21,7 +21,7 @@ import { ImageService } from './image.service';
     LogModule
   ],
   controllers: [ImageController],
-  components: [
+  providers: [
     ImageService,
     ImageRepositoryProvider,
     ImageListItemFactory,

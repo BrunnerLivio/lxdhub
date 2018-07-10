@@ -43,7 +43,7 @@ describe('LXDService', () => {
     beforeEach(async done => {
         // Mock Remote Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 {
                     provide: 'LXDHubAPISettings',
                     useFactory: () => settings

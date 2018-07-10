@@ -26,6 +26,8 @@ npm login
 
 - [docker >=18.02.0-ce](https://www.docker.com/)
 
-```
+```bash
+
 DOCKER_HUB_PASSWORD=your_docker_hub_password DOCKER_HUB_USER=your_docker_hub_user DOCKER_HUB_REPOSITORY=$DOCKER_HUB_USER/lxdhub CI_COMMIT_TAG=1.0.0 ./bin/publish.sh
+
 ```

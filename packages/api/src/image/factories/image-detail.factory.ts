@@ -1,13 +1,13 @@
 import { Factory } from '@lxdhub/common';
 import { Alias, Architecture, Image, ImageAvailability, OperatingSystem } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Component, Injectable } from '@nestjs/common';
 
 import { AliasDto, ArchitectureDto, ImageDetailDto, OperatingSystemDto, RemoteImageAvailabilityDto } from '..';
 
 /**
  * Factory which produces ImageDetailDto
  */
-@Component()
+@Injectable()
 export class ImageDetailFactory extends Factory<ImageDetailDto> {
     /**
      * Maps the alias from the database with the AliasDto

@@ -1,5 +1,5 @@
 import { Architecture, OperatingSystem, OperatingSystemArchitecture } from '@lxdhub/db';
-import { Component, Inject, Logger } from '@nestjs/common';
+import { Inject, Logger, Injectable } from '@nestjs/common';
 import Aigle from 'aigle';
 import * as _ from 'lodash';
 
@@ -11,7 +11,7 @@ import { ImageService } from '../image/image.service';
 import { LXDService } from '../lxd';
 import { OperatingSystemService } from '../operating-system';
 
-@Component()
+@Injectable()
 export class OsArchService {
     private logger: Logger;
     constructor(

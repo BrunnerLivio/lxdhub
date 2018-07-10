@@ -12,7 +12,7 @@ import { RemoteService } from './remote.service';
     TypeOrmModule.forFeature([Image])
   ],
   controllers: [RemoteController],
-  components: [
+  providers: [
     RemoteFactory,
     RemoteService,
     RemoteRepositoryProvider

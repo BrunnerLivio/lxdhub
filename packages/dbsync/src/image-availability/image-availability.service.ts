@@ -1,5 +1,5 @@
 import { Image, ImageAvailability, Remote } from '@lxdhub/db';
-import { Component, Inject, Logger } from '@nestjs/common';
+import { Inject, Logger, Injectable } from '@nestjs/common';
 import Aigle from 'aigle';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
@@ -8,7 +8,7 @@ import { LXDService } from '../lxd';
 import { RemoteRepository } from '../remote';
 import { ImageAvailabilityRepository } from './image-availability.repository';
 
-@Component()
+@Injectable()
 export class ImageAvailabilityService {
     private logger: Logger;
     constructor(

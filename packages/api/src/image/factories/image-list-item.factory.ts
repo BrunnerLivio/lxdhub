@@ -1,13 +1,13 @@
 import { Factory } from '@lxdhub/common';
 import { Image } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 import { ImageListItemDto } from '..';
 
 /**
  * Factory which procudes ImageListItemDtos
  */
-@Component()
+@Injectable()
 export class ImageListItemFactory extends Factory<ImageListItemDto> {
     /**
      * Maps the given database image with the ImageListDto and returns

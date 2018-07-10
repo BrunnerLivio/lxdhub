@@ -11,7 +11,7 @@ describe('SearchService', () => {
     beforeEach(async done => {
         // Mock Search Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 SearchService
             ]
         }).compile();

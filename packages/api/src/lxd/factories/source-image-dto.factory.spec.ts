@@ -31,7 +31,7 @@ describe('SourceImageFactory', () => {
     beforeEach(async () => {
         // Mock Image Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 SourceImageFactory
             ]
         }).compile();

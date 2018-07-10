@@ -7,7 +7,7 @@ import { ArchitectureRepositoryProvider } from './architecture.repository';
     imports: [
         LXDModule
     ],
-    components: [
+    providers: [
         ArchitectureService,
         ArchitectureRepositoryProvider
     ],

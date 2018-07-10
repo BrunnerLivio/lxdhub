@@ -10,7 +10,7 @@ import { ImageAvailabilityService } from './image-availability.service';
         TypeOrmModule.forFeature([ImageAvailability]),
     ],
     controllers: [],
-    components: [
+    providers: [
         ImageAvailabilityService,
         ImageAvailabilityRepositoryProvider
     ],

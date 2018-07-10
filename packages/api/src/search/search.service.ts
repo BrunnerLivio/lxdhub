@@ -1,9 +1,9 @@
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 import { SearchLiteral } from '.';
 import { SearchDictionary } from './interfaces';
 
-@Component()
+@Injectable()
 /**
  * The search services provides methods,
  * which are search-related

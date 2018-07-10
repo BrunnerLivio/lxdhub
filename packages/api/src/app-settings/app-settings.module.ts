@@ -18,7 +18,7 @@ export class AppSettingsModule {
         };
         return {
             module: AppSettingsModule,
-            components: [
+            providers: [
                 FsProvider,
                 apiSettingsProvider
             ],

@@ -19,7 +19,7 @@ describe('RemoteController', () => {
             controllers: [
                 RemoteController
             ],
-            components: [
+            providers: [
                 {
                     provide: RemoteService,
                     useClass: RemoteService

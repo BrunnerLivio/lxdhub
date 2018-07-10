@@ -1,7 +1,7 @@
 import { Image } from '@lxdhub/db';
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
-@Component()
+@Injectable()
 export class ImageDtoFactory {
     dtoToEntity(remoteImage: any, localImage?: Image): Image {
         localImage = localImage || new Image();

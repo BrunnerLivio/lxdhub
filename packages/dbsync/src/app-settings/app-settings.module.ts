@@ -17,7 +17,7 @@ export class AppSettingsModule {
         };
         return {
             module: AppSettingsModule,
-            components: [
+            providers: [
                 apiSettingsProvider
             ],
             exports: [

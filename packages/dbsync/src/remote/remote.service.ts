@@ -1,12 +1,12 @@
 import { Interfaces } from '@lxdhub/common';
 import { Remote } from '@lxdhub/db';
-import { Component, Inject, Logger } from '@nestjs/common';
+import { Inject, Logger, Injectable } from '@nestjs/common';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { RemoteDto, RemoteRepository } from './';
 import { RemoteFactory } from './factories/remote.factory';
 
-@Component()
+@Injectable()
 export class RemoteService {
     private logger: Logger;
 

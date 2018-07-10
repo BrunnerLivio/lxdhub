@@ -10,7 +10,7 @@ import { AppSettingsModule } from '../app-settings';
  * modules, controllers and components
  */
 @Module({
-    components: [
+    providers: [
         LXDService,
         SourceImageFactory,
         RequestProvider

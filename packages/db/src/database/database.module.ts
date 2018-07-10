@@ -17,7 +17,7 @@ export class DatabaseModule {
       imports: [
         TypeOrmModule.forRoot(ormConfig as any)
       ],
-      components: [
+      providers: [
         DatabaseService,
       ],
       exports: [
