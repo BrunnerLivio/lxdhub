@@ -79,6 +79,9 @@ export class LXDService {
             if (err && err.error_code === 403) {
                 throw new InternalServerErrorException('Server certificate is not valid. Contact a server administrator');
             }
+            if (err && err.error_code === 500) {
+                throw new InternalServerErrorException('The destination LXD remote is not reachable');
+            }
             throw err;
         }
     }

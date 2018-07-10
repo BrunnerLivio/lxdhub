@@ -82,6 +82,7 @@ export class ImageController {
   @ApiResponse({ status: 200, description: 'The image have been successfully cloned' })
   @ApiResponse({ status: 404, description: 'Not Found' })
   @ApiResponse({ status: 403, description: 'Not Authorized' })
+  @ApiResponse({ status: 500, description: 'The destination LXD remote is not reachable'})
   async clone(
     // Convert id to an integer
     @Param('id', new ParseIntPipe())
