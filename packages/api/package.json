@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/api",
-    "version": "1.8.1",
+    "version": "1.8.2",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
     "scripts": {
