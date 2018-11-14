@@ -1,6 +1,6 @@
 {
     "name": "lxdhub",
-    "version": "1.8.1",
+    "version": "1.8.2",
     "description": "Display, search and copy LXD-images using a web interface.",
     "private": true,
     "scripts": {
@@ -31,7 +31,7 @@
         "fs-extra": "^7.0.1"
     },
     "dependencies": {
-        "@lxdhub/web": "^1.8.1",
+        "@lxdhub/web": "^1.8.2",
         "express": "^4.16.4",
         "minimist": "^1.2.0"
     },
